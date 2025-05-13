@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="datos.Usuario" table="usuario">
+<id column="idUsuario" name="idUsuario">
+<generator class="identity" />
+</id>
+<property column="nombre" name="nombre" type="string" />
+<property column="apellido" name="apellido" type="string" />
+<property column="dni" name="dni" type="int" />
+<property column="email" name="email" type="string" />
+<property column="fechaDeAlta" name="fechaDeAlta" type="LocalDate" />
+<property column="fechaDeBaja" name="fechaDeBaja" type="LocalDate" />
+<property column="estado" name="estado" type="boolean" />
+<one-to-one name="login" class="datos.Login" ></one-to-one>
+
+<joined-subclass name="datos.Empleado" table="empleado">
+<key column="idEmpleado" />
+<property column="superUsuario" name="superUsuario" type="boolean" />
+<many-to-one name="departamento" class="datos.Departamento" column="idDepartamento" not-null="true"/>
+</joined-subclass>
+
+<joined-subclass name="datos.Cliente" table="cliente">
+<key column="idCliente" />
+<many-to-one name="organizacion" class="datos.Organizacion" column="idOrganizacion" not-null="true"/>
+</joined-subclass>
+
+</class>
+</hibernate-mapping>
