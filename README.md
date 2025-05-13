@@ -5,7 +5,7 @@ Para configurar las variables de entorno.
      - DB_USERNAME: {su de usuario de BD} 
      - DB_PASSWORD: {su contraseña de BD}
        
-   Crear una BD con el nombre 'bd-OO2-Grupo7'.
+   Crear una BD con el nombre 'bd_OO2_Grupo7'.
 
 Para configurar las librerias necesarias.
 
